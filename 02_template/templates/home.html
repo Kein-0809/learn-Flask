@@ -1,8 +1,17 @@
 {% extends "base.html" %}
+
 {% block title %}Home {{ super() }}{% endblock %}
+
 {% block content %}
 {# <h1>{{ user_info.name }}({{ user_info.age }})さんがログインしました</h1> #}
+
+{# "%s"はテンプレートフィルター #}
+{# 1つ目の"%s"にはuser_info.nameが入り、2つ目の"%s"にはuser_info.ageが入る #}
 <h1>{{ "%s(%s)" | format(user_info.name, user_info.age)}}さんがログインしました</h1>
+
+{# カスタムテンプレートフィルター(自作のフィルター)を使ってフォーマットを指定 #}
+{# フィルターの名前はapp.pyで定義したものを使う #}
 <p>{{ user_info.age | birth_year }}年に生まれました</p>
+
 <p>{{ user_info.greet("これからも") }}</p>
 {% endblock %}

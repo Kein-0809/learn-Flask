@@ -6,12 +6,13 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = b'Tly\x1fs\xef\x12q\x0e\x9a\xda\xe6\xb8EC\x0f'
 
-
+# フォームの定義
 class UserForm(Form):
     name = StringField('名前')
     age = IntegerField('年齢')
     submit = SubmitField('Submit')
 
+# ホーム画面
 @app.route('/', methods=["GET", "POST"])
 def index():
     name = age = ''

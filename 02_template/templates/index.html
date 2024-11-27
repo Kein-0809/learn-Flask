@@ -1,6 +1,12 @@
+{# base.htmlを継承する #}
 {% extends "base.html" %}
+
+{# このHTML特有の"title"ブロックを記述 #}
 {% block title %}Index {{ super() }}{% endblock %}
+
+{# このHTML特有の"content"ブロックを記述 #}
 {% block content %}
+
 {% filter lower %}
 <h1>Hello From Flask, HTML</h1>
 <p>Goodbye</p>
@@ -8,14 +14,17 @@
 {% endfilter %}
 
 <h1>{{ "Hello From Flask, HTML" | capitalize }}</h1>
+
 <h1>{{ "Hello From Flask, HTML" | title }}</h1>
+
 <p>{{ user | default("userが存在しません") }}</p>
-<p>{{ "Jinjaについてもっと詳しく知りたい人は
-https://google.com/
-まで" | urlize }}</p>
+
+<p>{{ "Jinjaについてもっと詳しく知りたい人は https://google.com/ まで" | urlize }}</p>
+
 <p>{{ user | upper }}</p>
 
 <p>犬のリンク</p>
+<p>staticフォルダのimageフォルダのcutedog.jpgを表示</p>
 <img src="{{ url_for('static', filename='image/cutedog.jpg') }}">
 
 {% endblock %}

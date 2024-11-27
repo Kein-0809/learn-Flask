@@ -1,8 +1,14 @@
+{# base.htmlを継承する #}
 {% extends "base.html" %}
+
 {% block title %}Not Found {{ super() }}{% endblock %}
+
 {% block content %}
+{# ホームページへのリンクを表示 #}
 <a href="{{ url_for('index') }}">Indexへ</a>
 <h1>ページが存在しません</h1>
+
+{# 画像を表示 #}
 <img src="{{ url_for('static', filename='image/cutedog.jpg') }}">
 
 {% endblock %}
